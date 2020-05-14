@@ -106,9 +106,16 @@ function temperatureInF(temp, unit) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
-  /* code here */
+function makePersonObject(id, name, email) {
+  const personObject = {
+    id: id,
+    name: name,
+    email: email
+  };
+  return personObject;
 }
+
+//console.log(makePersonObject(5, "Leia", "leia@leia.com"));
 
 /**
  * ### Challenge `getName`
@@ -123,10 +130,11 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+function getName(person) {
+  return `Hello, my name is ${person.name}`;
 }
 
+//console.log(getName(makePersonObject(5, "Leia", "leia@leia.com")));
 
 /**
  * ### Challenge `appleIndex`
@@ -143,9 +151,17 @@ function getName(/* code here */) {
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
-  /* code here */
+function appleIndex(arr) {
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] === "apple"){
+      return i;
+    }
+  }
+  return "apple not found";
 }
+
+// const arr = ['orange', 'grape', 'apple', 'banana', 'mango'];
+// console.log(appleIndex(arr));
 
 /**
  * ### Challenge `isItAnApple`
@@ -162,11 +178,20 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
-  /* code here */
+function isItAnApple(arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] === "apple"){
+      result.push(true);
+    }else{
+      result.push(false);
+    }
+  }
+  return result;
 }
 
-
+// const arr2 = ['orange', 'apple', 'banana', 'apples', 'apple', 'mango'];
+// console.log(isItAnApple(arr2));
 
 /*
 // ⭐️ Example Test Data ⭐️
@@ -225,8 +250,11 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+  const car = inventory[index];
+  return `This is a ${car.car_make} ${car.car_model}`;    //***************************************************** still in progress */
 }
+
+console.log(getCarInfoByIndex(data, 0));
 
 /**
  * ### Challenge `getLastCarInfo`
